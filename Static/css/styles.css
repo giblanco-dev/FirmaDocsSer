@@ -1,0 +1,1758 @@
+/* --- CSS from index.php --- */
+* {
+                                    margin: 0;
+                                    padding: 0;
+                                    box-sizing: border-box;
+                                }
+
+                                body.ui-theme {
+                                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    min-height: 100vh;
+                                    background: linear-gradient(135deg, #2d83a0 0%, #00e5ff 100%);
+                                    padding: 20px;
+                                }
+
+                                .container {
+                                    background: white;
+                                    padding: 50px 40px;
+                                    border-radius: 12px;
+                                    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+                                    text-align: center;
+                                    max-width: 700px;
+                                    width: 100%;
+                                }
+
+                                .message {
+                                    font-size: 28px;
+                                    color: #333;
+                                    margin-bottom: 40px;
+                                    line-height: 1.7;
+                                    font-weight: 600;
+                                    letter-spacing: 0.3px;
+                                }
+
+                                .code {
+                                    font-size: 36px;
+                                    color: #2d83a0;
+                                    font-weight: 700;
+                                    margin: 30px 0;
+                                }
+
+                                .logo {
+                                    width: 120px;
+                                    height: 120px;
+                                    margin: 0 auto 30px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                }
+
+                                .logo img {
+                                    max-width: 100%;
+                                    max-height: 100%;
+                                    object-fit: contain;
+                                    filter: drop-shadow(0 4px 8px rgba(45, 131, 160, 0.2));
+                                }
+
+                                form {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 25px;
+                                }
+
+                                .input-field {
+                                    width: 100%;
+                                    padding: 18px 22px;
+                                    font-size: 22px;
+                                    border: 2px solid #c8d3db;
+                                    border-radius: 10px;
+                                    transition: all 0.3s ease;
+                                    font-weight: 500;
+                                    -webkit-appearance: none;
+                                    appearance: none;
+                                }
+
+                                .input-field:focus {
+                                    border-color: #2d83a0;
+                                    outline: none;
+                                    box-shadow: 0 0 0 5px rgba(45, 131, 160, 0.2);
+                                    transform: translateY(-2px);
+                                }
+
+                                .input-field::placeholder {
+                                    color: #999;
+                                    font-size: 20px;
+                                }
+
+                                .button {
+                                    background-color: #2d83a0;
+                                    color: white;
+                                    border: none;
+                                    padding: 20px 40px;
+                                    font-size: 24px;
+                                    font-weight: 700;
+                                    border-radius: 10px;
+                                    cursor: pointer;
+                                    transition: all 0.3s ease;
+                                    min-height: 70px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    -webkit-tap-highlight-color: transparent;
+                                }
+
+                                .button:hover {
+                                    background-color: #1e5a7a;
+                                    transform: translateY(-3px);
+                                    box-shadow: 0 8px 20px rgba(45, 131, 160, 0.3);
+                                }
+
+                                .button:active {
+                                    transform: translateY(-1px);
+                                }
+
+                                .error-message {
+                                    display: none;
+                                    background-color: #ffebee;
+                                    border: 2px solid #ef5350;
+                                    border-radius: 10px;
+                                    padding: 18px 20px;
+                                    margin-bottom: 30px;
+                                    color: #c62828;
+                                    font-size: 18px;
+                                    font-weight: 600;
+                                    line-height: 1.5;
+                                }
+
+                                .error-message.show {
+                                    display: block;
+                                    animation: slideDown 0.3s ease;
+                                }
+
+                                @keyframes slideDown {
+                                    from {
+                                        opacity: 0;
+                                        transform: translateY(-10px);
+                                    }
+                                    to {
+                                        opacity: 1;
+                                        transform: translateY(0);
+                                    }
+                                }
+
+                                /* Optimización para tablet 11.5 pulgadas */
+                                @media (min-width: 800px) and (max-width: 1600px) {
+                                    .container {
+                                        padding: 60px 50px;
+                                        max-width: 800px;
+                                    }
+
+                                    .error-message {
+                                        padding: 20px 25px;
+                                        font-size: 20px;
+                                    }
+
+                                    .logo {
+                                        width: 150px;
+                                        height: 150px;
+                                        margin-bottom: 40px;
+                                    }
+
+                                    .message {
+                                        font-size: 32px;
+                                        margin-bottom: 50px;
+                                    }
+
+                                    .input-field {
+                                        padding: 20px 25px;
+                                        font-size: 24px;
+                                        min-height: 60px;
+                                    }
+
+                                    .button {
+                                        padding: 22px 50px;
+                                        font-size: 26px;
+                                        min-height: 75px;
+                                    }
+                                }
+
+                                /* Pantallas más grandes */
+                                @media (min-width: 1600px) {
+                                    .container {
+                                        padding: 70px 60px;
+                                    }
+
+                                    .error-message {
+                                        padding: 22px 28px;
+                                        font-size: 22px;
+                                    }
+
+                                    .logo {
+                                        width: 180px;
+                                        height: 180px;
+                                        margin-bottom: 50px;
+                                    }
+
+                                    .message {
+                                        font-size: 36px;
+                                    }
+
+                                    .input-field {
+                                        padding: 24px 30px;
+                                        font-size: 26px;
+                                        min-height: 70px;
+                                    }
+
+                                    .button {
+                                        padding: 26px 60px;
+                                        font-size: 28px;
+                                        min-height: 85px;
+                                    }
+                                }
+
+                                /* Pantallas pequeñas */
+                                @media (max-width: 799px) {
+                                    .container {
+                                        padding: 40px 30px;
+                                    }
+
+                                    .error-message {
+                                        padding: 16px 18px;
+                                        font-size: 16px;
+                                    }
+
+                                    .logo {
+                                        width: 100px;
+                                        height: 100px;
+                                        margin-bottom: 25px;
+                                    }
+
+                                    .message {
+                                        font-size: 24px;
+                                        margin-bottom: 30px;
+                                    }
+
+                                    .input-field {
+                                        padding: 16px 20px;
+                                        font-size: 20px;
+                                        min-height: 55px;
+                                    }
+
+                                    .button {
+                                        padding: 18px 35px;
+                                        font-size: 22px;
+                                        min-height: 65px;
+                                    }
+                                }
+
+/* --- CSS from fotopaciente.php --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+    body.ui-theme {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #2d83a0 0%, #00e5ff 100%);
+        padding: 20px;
+    }
+
+    .card {
+        background: white;
+        padding: 50px 40px;
+        border-radius: 12px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        max-width: 700px;
+        width: 100%;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 36px;
+        color: #2d83a0;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .campo { margin-bottom: 25px; text-align: left; }
+    .campo label { 
+        display: block; 
+        font-size: 18px; 
+        color: #333; 
+        margin-bottom: 8px; 
+        font-weight: 600;
+    }
+    .campo input[type="text"] {
+        width: 100%;
+        padding: 18px 22px;
+        font-size: 22px;
+        border: 2px solid #c8d3db;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        background: #fff;
+    }
+    
+    .campo input[type="text"]:disabled {
+        background: #f5f5f5;
+        color: #666;
+    }
+
+    /* Área de foto */
+    .foto-area {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    /* Vista previa */
+    #preview-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    #preview {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #2d83a0;
+      display: none;
+      box-shadow: 0 8px 20px rgba(45, 131, 160, 0.3);
+    }
+
+    #placeholder {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: #f8f9fa;
+      border: 3px dashed #c8d3db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #6c757d;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    #placeholder:hover {
+        background: #eef2f5;
+        border-color: #2d83a0;
+        color: #2d83a0;
+    }
+
+    #placeholder svg { margin-bottom: 12px; width: 60px; height: 60px; }
+
+    /* Input file oculto */
+    #inputFoto { display: none; }
+
+    /* Botones */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 30px;
+      border-radius: 10px;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .btn-camara {
+      background: #e8f4f8;
+      color: #2d83a0;
+      margin-bottom: 15px;
+      border: 2px solid #bce0ed;
+    }
+    
+    .btn-camara:hover {
+      background: #d4eaf2;
+    }
+
+    .btn-guardar {
+      background-color: #2d83a0;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .btn-guardar:hover:not(:disabled) {
+      background-color: #1e5a7a;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(45, 131, 160, 0.3);
+    }
+
+    .btn-guardar:disabled {
+      background: #b0caed;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .btn-finalizar {
+      background-color: #028a0f;
+      color: white;
+      margin-top: 15px;
+      text-decoration: none;
+    }
+
+    .btn-finalizar:hover {
+      background-color: #02660b;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(2, 138, 15, 0.3);
+    }
+
+    /* Mensaje resultado */
+    #mensaje {
+      display: none;
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+    }
+    #mensaje.ok  { background: #e8f5e9; color: #2e7d32; border: 2px solid #c8e6c9; }
+    #mensaje.err { background: #ffebee; color: #c62828; border: 2px solid #ffcdd2; }
+
+    .foto-actual {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .foto-actual img {
+      width: 180px; height: 180px;
+      border-radius: 50%; object-fit: cover;
+      border: 4px solid #2d83a0;
+      box-shadow: 0 4px 12px rgba(45, 131, 160, 0.2);
+    }
+    .foto-actual p { font-size: 16px; color: #666; margin-top: 10px; font-weight: 500; }
+    
+    /* Optimización para tablet y pantallas pequeñas */
+    @media (max-width: 799px) {
+        .card { padding: 30px 20px; }
+        h2 { font-size: 28px; }
+        #preview, #placeholder { width: 200px; height: 200px; }
+        .btn { padding: 15px 20px; font-size: 18px; }
+        .campo input[type="text"] { font-size: 18px; padding: 14px 18px; }
+    }
+
+/* --- CSS from finalizar_aceptación.php --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+        body.ui-theme {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2d83a0 0%, #00e5ff 100%);
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 30px;
+            color: #2d83a0;
+            font-weight: 700;
+            margin-bottom: 35px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 2px solid #e0e6ed;
+            padding: 18px 15px;
+            font-size: 16px;
+            color: #444;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 700;
+            color: #2d83a0;
+            font-size: 18px;
+        }
+
+        .td-header {
+            background-color: #f1f5f8;
+            font-weight: 600;
+            color: #2d83a0;
+        }
+
+        img.foto-paciente {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #2d83a0;
+            box-shadow: 0 6px 15px rgba(45, 131, 160, 0.2);
+            margin: 10px;
+        }
+
+        img.firma {
+            max-width: 160px;
+            max-height: 90px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        .no-data-placeholder {
+            color: #999;
+            font-style: italic;
+            font-size: 14px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .btn-inicio {
+            display: inline-block;
+            background-color: #2d83a0;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-inicio:hover {
+            background-color: #1e5a7a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(45, 131, 160, 0.3);
+        }
+
+        @media (max-width: 899px) {
+            .card { padding: 30px 20px; }
+            h2 { font-size: 24px; }
+            th, td { padding: 12px 10px; font-size: 14px; }
+            img.foto-paciente { width: 120px; height: 120px; }
+            img.firma { max-width: 120px; }
+        }
+
+/* --- CSS from view_aviso.php --- */
+/* ── Google Fonts ─────────────────────────────────────────── */
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap');
+ 
+    /* ── Variables ────────────────────────────────────────────── */
+    :root {
+      --font-serif:  'EB Garamond', Georgia, serif;
+      --font-sans:   'Source Sans 3', Arial, sans-serif;
+      --ink:         #1a1a1a;
+      --ink-mid:     #333;
+      --border:      #888;
+      --page-bg:     #f7f5f0;
+      --paper:       #ffffff;
+      --accent:      #1a1a1a;
+      /* Escala para tablet 2508×1504 px — alta densidad */
+      --base:        22px;
+      --lh:          1.75;
+      --page-w:      960px;
+      --pad:         72px;
+    }
+ 
+    /* ── Reset ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body.doc-theme-paper {
+      font-family: var(--font-sans);
+      font-size: var(--base);
+      line-height: var(--lh);
+      color: var(--ink);
+      background: var(--page-bg);
+      padding: 48px 24px 80px;
+    }
+ 
+    /* ── Botón imprimir ───────────────────────────────────────── */
+    .print-bar {
+      max-width: var(--page-w);
+      margin: 0 auto 28px;
+      display: flex;
+      justify-content: flex-end;
+    }
+ 
+    .btn-print {
+      font-family: var(--font-sans);
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+      background: #1a1a1a;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.02em;
+      transition: background 0.18s;
+    }
+    .btn-print:hover { background: #333; }
+    .btn-print svg   { width: 20px; height: 20px; }
+ 
+    /* ── Hoja / página ────────────────────────────────────────── */
+    .pagina {
+      background: var(--paper);
+      max-width: var(--page-w);
+      margin: 0 auto 48px;
+      padding: var(--pad);
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+ 
+    /* ── Título principal ─────────────────────────────────────── */
+    .doc-titulo {
+      font-family: var(--font-sans);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 32px;
+      padding-bottom: 18px;
+      border-bottom: 2.5px solid var(--ink);
+    }
+ 
+    /* ── Párrafo introductorio con versalita ──────────────────── */
+    .intro {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: var(--lh);
+      text-align: justify;
+      margin-bottom: 28px;
+    }
+ 
+    .intro .empresa {
+      font-variant: small-caps;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+    }
+ 
+    /* ── Secciones ────────────────────────────────────────────── */
+    .seccion {
+      margin-bottom: 26px;
+    }
+ 
+    .seccion-titulo {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+ 
+    .seccion p {
+      font-size: 1rem;
+      line-height: var(--lh);
+      text-align: justify;
+      margin-bottom: 10px;
+    }
+ 
+    /* ── Columnas de datos ────────────────────────────────────── */
+    .cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 40px;
+      margin: 14px 0;
+    }
+ 
+    .cols ul, ul.lista {
+      list-style: disc;
+      padding-left: 24px;
+    }
+ 
+    .cols ul li, ul.lista li {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 4px;
+      color: var(--ink-mid);
+    }
+ 
+    /* ── Lista sensibles ──────────────────────────────────────── */
+    ul.lista {
+      margin: 12px 0 12px 8px;
+    }
+ 
+    /* ── Bloque ARCO incisos ──────────────────────────────────── */
+    ol.incisos {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+ 
+    ol.incisos li {
+      font-size: 1rem;
+      line-height: var(--lh);
+      margin-bottom: 8px;
+      padding-left: 4px;
+      text-align: justify;
+    }
+ 
+    ol.incisos li span.letra {
+      font-weight: 700;
+      margin-right: 6px;
+    }
+ 
+    ol.incisos li span.respuesta {
+      display: block;
+      margin-left: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+ 
+    /* ── Lista de contacto ────────────────────────────────────── */
+    ol.contacto {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+ 
+    ol.contacto li {
+      font-size: 1rem;
+      line-height: 1.65;
+      margin-bottom: 6px;
+      padding-left: 4px;
+    }
+ 
+    ol.contacto li span.letra {
+      font-weight: 700;
+      margin-right: 4px;
+    }
+ 
+    /* ── Email destacado ──────────────────────────────────────── */
+    .email-highlight {
+      font-weight: 700;
+      font-size: 0.98rem;
+      letter-spacing: 0.03em;
+      margin: 12px 0;
+      color: var(--ink);
+    }
+ 
+    /* ── Área de firma ────────────────────────────────────────── */
+    .firma-area {
+      margin-top: 40px;
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+    }
+ 
+    .firma-caja {
+      border: 1.5px solid var(--border);
+      width: 200px;
+      min-width: 200px;
+      height: 90px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+ 
+    .firma-etiquetas {
+      font-size: 1rem;
+      line-height: 2;
+      color: var(--ink);
+    }
+ 
+    /* ── Separador de página ──────────────────────────────────── */
+    .sep-pagina {
+      border: none;
+      border-top: 1.5px solid #bbb;
+      margin: 40px 0 32px;
+    }
+ 
+    /* ── Pie de documento ─────────────────────────────────────── */
+    .pie {
+      margin-top: 48px;
+      text-align: right;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #666;
+      border-top: 1px solid #ccc;
+      padding-top: 16px;
+    }
+
+     .signature-section {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .signature-box {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .signature-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d83a0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .signature-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        #firma {
+            border: 3px solid #2d83a0;
+            border-radius: 8px;
+            background-color: #ffffff;
+            cursor: crosshair;
+            box-shadow: 0 4px 12px rgba(45, 131, 160, 0.2);
+            touch-action: none;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .signature-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .signature-buttons button {
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 50px;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .btn-guardar {
+            background-color: #2d83a0;
+            color: white;
+        }
+
+        .btn-guardar:hover {
+            background-color: #1e5a7a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(45, 131, 160, 0.3);
+        }
+
+        .btn-guardar:active {
+            transform: translateY(0);
+        }
+
+        .btn-limpiar {
+            background-color: #f57c00;
+            color: white;
+        }
+
+        .btn-limpiar:hover {
+            background-color: #e65100;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(245, 124, 0, 0.3);
+        }
+
+        .btn-limpiar:active {
+            transform: translateY(0);
+        }
+
+        .signature-help {
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .signature-line {
+            border-top: 2px solid #000;
+            margin-top: 60px;
+            padding-top: 10px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+ 
+    /* ── ESTILOS DE IMPRESIÓN ─────────────────────────────────── */
+    @media print {
+      body.doc-theme-paper { background: white; padding: 0; }
+      .print-bar      { display: none; }
+      .pagina {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        padding: 18mm 20mm;
+        max-width: 100%;
+        page-break-after: always;
+      }
+      .pagina:last-child { page-break-after: auto; }
+ 
+      :root {
+        --base: 11pt;
+        --pad:  0;
+      }
+ 
+      .doc-titulo   { font-size: 15pt; margin-bottom: 18pt; }
+      .intro        { font-size: 10.5pt; }
+      .seccion p,
+      .cols ul li,
+      ul.lista li,
+      ol.incisos li,
+      ol.contacto li,
+      .email-highlight,
+      .firma-etiquetas { font-size: 10.5pt; }
+      .seccion-titulo  { font-size: 10.5pt; }
+ 
+      @page { size: Letter portrait; margin: 15mm 20mm; }
+    }
+
+/* --- CSS from view_consentimiento.php --- */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap');
+
+    :root {
+      --font-serif:  'EB Garamond', Georgia, serif;
+      --font-sans:   'Source Sans 3', Arial, sans-serif;
+      --ink:         #1a1a1a;
+      --ink-mid:     #333;
+      --border:      #555;
+      --page-bg:     #f7f5f0;
+      --paper:       #ffffff;
+      --base:        22px;
+      --lh:          1.80;
+      --page-w:      960px;
+      --pad:         72px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body.doc-theme-paper {
+      font-family: var(--font-sans);
+      font-size: var(--base);
+      line-height: var(--lh);
+      color: var(--ink);
+      background: var(--page-bg);
+      padding: 48px 24px 80px;
+    }
+
+    /* ── Botón imprimir ─────────────────────────────────────── */
+    .print-bar {
+      max-width: var(--page-w);
+      margin: 0 auto 28px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .btn-print {
+      font-family: var(--font-sans);
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+      background: #1a1a1a;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.02em;
+      transition: background 0.18s;
+    }
+    .btn-print:hover { background: #333; }
+    .btn-print svg   { width: 20px; height: 20px; }
+
+    /* ── Hoja ───────────────────────────────────────────────── */
+    .pagina {
+      background: var(--paper);
+      max-width: var(--page-w);
+      margin: 0 auto;
+      padding: var(--pad);
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+
+    /* ── Encabezado con logo ────────────────────────────────── */
+    .encabezado {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-bottom: 32px;
+    }
+
+    .encabezado img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .encabezado-texto {
+      font-family: var(--font-sans);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    /* ── Título documento ───────────────────────────────────── */
+    .doc-titulo {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+
+    /* ── Línea de fecha ─────────────────────────────────────── */
+    .linea-fecha {
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 28px;
+      color: var(--ink);
+    }
+
+    .linea-fecha .subr {
+      display: inline-block;
+      min-width: 60px;
+      border-bottom: 1.5px solid var(--border);
+      margin: 0 4px;
+      vertical-align: bottom;
+    }
+
+    .linea-fecha .subr-lg {
+      min-width: 180px;
+    }
+
+    /* ── Línea YO ───────────────────────────────────────────── */
+    .bloque-yo {
+      font-size: 1rem;
+      line-height: var(--lh);
+      margin-bottom: 6px;
+    }
+
+    .bloque-yo .linea-yo {
+      display: inline-block;
+      min-width: 380px;
+      border-bottom: 1.5px solid var(--border);
+      margin: 0 6px;
+      vertical-align: bottom;
+    }
+
+    /* ── Línea diagnóstico ──────────────────────────────────── */
+    .bloque-dx {
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+
+    .bloque-dx .linea-dx {
+      display: inline-block;
+      min-width: 280px;
+      border-bottom: 1.5px solid var(--border);
+      margin: 0 6px;
+      vertical-align: bottom;
+    }
+
+    /* ── Subtítulo declaración ──────────────────────────────── */
+    .subtitulo-declaro {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      color: var(--ink);
+    }
+
+    /* ── Puntos numerados ───────────────────────────────────── */
+    .puntos {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 52px;
+    }
+
+    .puntos li {
+      font-size: 1rem;
+      line-height: var(--lh);
+      text-align: justify;
+      margin-bottom: 22px;
+      padding-left: 0;
+    }
+
+    /* Punto 1: texto con parte en subrayado/itálica */
+    .puntos li em {
+      font-style: italic;
+    }
+
+    .puntos li strong {
+      font-weight: 700;
+    }
+
+    /* Punto 2 bloque destacado */
+    .bloque-italica {
+      font-style: italic;
+      font-size: 0.97rem;
+      line-height: var(--lh);
+      text-align: justify;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+
+    /* ── Línea terapia (punto 1) ────────────────────────────── */
+    .linea-terapia {
+      display: inline-block;
+      min-width: 240px;
+      border-bottom: 1.5px solid var(--border);
+      margin: 0 4px;
+      vertical-align: bottom;
+    }
+
+    /* ── Bloque de firmas ───────────────────────────────────── */
+    .firmas {
+      margin-top: 16px;
+    }
+
+ .signature-section {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .signature-box {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .signature-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d83a0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .signature-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        #firma {
+            border: 3px solid #2d83a0;
+            border-radius: 8px;
+            background-color: #ffffff;
+            cursor: crosshair;
+            box-shadow: 0 4px 12px rgba(45, 131, 160, 0.2);
+            touch-action: none;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .signature-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .signature-buttons button {
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 50px;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .btn-guardar {
+            background-color: #2d83a0;
+            color: white;
+        }
+
+        .btn-guardar:hover {
+            background-color: #1e5a7a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(45, 131, 160, 0.3);
+        }
+
+        .btn-guardar:active {
+            transform: translateY(0);
+        }
+
+        .btn-limpiar {
+            background-color: #f57c00;
+            color: white;
+        }
+
+        .btn-limpiar:hover {
+            background-color: #e65100;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(245, 124, 0, 0.3);
+        }
+
+        .btn-limpiar:active {
+            transform: translateY(0);
+        }
+
+        .signature-help {
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .signature-line {
+            border-top: 2px solid #000;
+            margin-top: 60px;
+            padding-top: 10px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+    /* ── IMPRESIÓN ──────────────────────────────────────────── */
+    @media print {
+      body.doc-theme-paper { background: white; padding: 0; }
+      .print-bar  { display: none; }
+      .pagina {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        padding: 14mm 20mm 18mm;
+        max-width: 100%;
+      }
+      :root {
+        --base: 11pt;
+        --pad: 0;
+        --lh: 1.70;
+      }
+
+      .encabezado-texto { font-size: 13pt; }
+      .doc-titulo       { font-size: 11pt; margin-bottom: 16pt; }
+      .linea-fecha,
+      .bloque-yo,
+      .bloque-dx,
+      .puntos li,
+      .bloque-italica,
+      .subtitulo-declaro { font-size: 10.5pt; }
+      .firma-etiqueta    { font-size: 8.5pt; }
+
+      .firmas-fila { margin-bottom: 36pt; }
+      .firma-espacio { height: 48pt; }
+
+      @page { size: Letter portrait; margin: 15mm 20mm; }
+    }
+
+/* --- CSS from view_hcg.php --- */
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body.doc-theme-hcg {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        @media print {
+            body.doc-theme-hcg {
+                margin: 0;
+                padding: 0;
+                background: white;
+                font-size: 11px;
+            }
+            
+            @page {
+                size: letter;
+                margin: 0.75in;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 25px;
+            background: white;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #2d83a0;
+            padding-bottom: 15px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .header-info {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.5;
+            min-width: 200px;
+        }
+
+        .header-clinic {
+            flex: 1;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .header-clinic h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #2d83a0;
+            font-weight: 700;
+        }
+
+        .header-patient {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.5;
+            min-width: 200px;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d83a0;
+            margin: 30px 0 20px 0;
+            page-break-after: avoid;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            background-color: #e8f4f8;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            border-left: 5px solid #2d83a0;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            padding: 6px 10px;
+            background-color: #f5f5f5;
+            border-left: 3px solid #ccc;
+        }
+
+        .content-row {
+            display: flex;
+            margin-bottom: 12px;
+            page-break-inside: avoid;
+        }
+
+        .content-label {
+            width: 35%;
+            font-weight: 700;
+            padding-right: 15px;
+            flex-shrink: 0;
+            font-size: 15px;
+        }
+
+        .content-value {
+            flex: 1;
+            word-wrap: break-word;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .vital-signs {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .vital-item {
+            page-break-inside: avoid;
+            background-color: #f9f9f9;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .vital-label {
+            font-weight: 700;
+            font-size: 14px;
+            background-color: #e8f4f8;
+            padding: 6px 8px;
+            margin-bottom: 8px;
+            border-radius: 3px;
+        }
+
+        .vital-value {
+            font-size: 15px;
+            padding: 4px 0;
+            font-weight: 500;
+        }
+
+        .exploration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .exploration-item {
+            page-break-inside: avoid;
+            background-color: #f9f9f9;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .exploration-label {
+            font-weight: 700;
+            font-size: 14px;
+            background-color: #e8f4f8;
+            padding: 6px 8px;
+            margin-bottom: 8px;
+            border-radius: 3px;
+        }
+
+        .exploration-value {
+            font-size: 15px;
+            padding: 4px 0;
+            line-height: 1.5;
+        }
+
+        .divider {
+            border-top: 2px solid #ddd;
+            margin: 20px 0;
+            page-break-after: avoid;
+        }
+
+        .signature-section {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .signature-box {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .signature-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d83a0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .signature-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        #firma {
+            border: 3px solid #2d83a0;
+            border-radius: 8px;
+            background-color: #ffffff;
+            cursor: crosshair;
+            box-shadow: 0 4px 12px rgba(45, 131, 160, 0.2);
+            touch-action: none;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .signature-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .signature-buttons button {
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 50px;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .btn-guardar {
+            background-color: #2d83a0;
+            color: white;
+        }
+
+        .btn-guardar:hover {
+            background-color: #1e5a7a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(45, 131, 160, 0.3);
+        }
+
+        .btn-guardar:active {
+            transform: translateY(0);
+        }
+
+        .btn-limpiar {
+            background-color: #f57c00;
+            color: white;
+        }
+
+        .btn-limpiar:hover {
+            background-color: #e65100;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(245, 124, 0, 0.3);
+        }
+
+        .btn-limpiar:active {
+            transform: translateY(0);
+        }
+
+        .signature-help {
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .signature-line {
+            border-top: 2px solid #000;
+            margin-top: 60px;
+            padding-top: 10px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .no-data {
+            background-color: #fff3cd;
+            padding: 25px;
+            border: 2px solid #ffc107;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 1280px) {
+            .header {
+                flex-direction: column;
+            }
+            
+            .header-info,
+            .header-clinic,
+            .header-patient {
+                min-width: auto;
+                width: 100%;
+            }
+            
+            .exploration-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .vital-signs {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            #firma {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100%;
+            }
+
+            .signature-buttons button {
+                flex: 1 1 calc(50% - 6px);
+                min-width: 120px;
+            }
+        }
+
+        @media screen and (min-width: 800px) and (max-width: 1600px) {
+            .vital-signs {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            
+            body.doc-theme-hcg {
+                font-size: 17px;
+            }
+
+            .signature-title {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            #firma {
+                width: 100% !important;
+                height: 280px !important;
+                border-width: 4px;
+            }
+
+            .signature-buttons button {
+                padding: 18px 36px;
+                font-size: 18px;
+                min-height: 60px;
+                flex: 1 1 calc(50% - 8px);
+                min-width: 160px;
+            }
+
+            .signature-help {
+                font-size: 15px;
+            }
+        }
+
+        @media screen and (min-width: 1600px) {
+            body.doc-theme-hcg {
+                font-size: 18px;
+            }
+            
+            .title {
+                font-size: 22px;
+            }
+            
+            .section-title {
+                font-size: 17px;
+            }
+            
+            .content-value,
+            .exploration-value,
+            .vital-value {
+                font-size: 16px;
+            }
+
+            .signature-title {
+                font-size: 24px;
+                margin-bottom: 25px;
+            }
+
+            #firma {
+                width: 100% !important;
+                height: 320px !important;
+                border-width: 4px;
+            }
+
+            .signature-buttons button {
+                padding: 20px 40px;
+                font-size: 20px;
+                min-height: 70px;
+                flex: 1 1 calc(50% - 10px);
+                min-width: 180px;
+            }
+
+            .signature-help {
+                font-size: 16px;
+            }
+        }
+
+        @media screen {
+            .container {
+                background: white;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                margin: 15px auto;
+                border-radius: 6px;
+            }
+            
+            .print-button {
+                text-align: center;
+                margin: 25px 0;
+            }
+            
+            .print-button button {
+                padding: 12px 24px;
+                background-color: #2d83a0;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 16px;
+                margin: 0 8px;
+                transition: all 0.3s ease;
+                font-weight: 600;
+            }
+            
+            .print-button button:hover {
+                background-color: #1e5a7a;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+            
+            .print-button .close-btn {
+                background-color: #d32f2f;
+            }
+            
+            .print-button .close-btn:hover {
+                background-color: #b71c1c;
+            }
+        }
+
