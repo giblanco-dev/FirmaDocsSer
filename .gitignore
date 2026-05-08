@@ -1,0 +1,7 @@
+# Ignorar el contenido de las carpetas de subidas
+/Firmas/*
+/FotosPacientes/*
+
+# Mantener las carpetas vacías en Git
+!/Firmas/.keep
+!/FotosPacientes/.keep
