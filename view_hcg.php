@@ -710,14 +710,15 @@ $val_his_clin = $res_h_clin->num_rows;
         <div class="divider"></div>
 
         <!-- FIRMA DEL MÉDICO -->
-        <div class="title">FIRMA DEL MÉDICO</div>
+        
         
         <div class="signature-section">
             <div class="signature-box">
                 <div class="signature-title">Firme en el espacio inferior</div>
                 
-                <form action="logic/save_firma.php" method="post" class="signature-form" id="firmaForm">
+                <form action="logic/save_firmas.php" method="post" class="signature-form" id="firmaForm">
                     <input type="hidden" name="id_paciente" value="<?php echo $id_paciente; ?>">
+                    <input type="hidden" name="documento" value="HGC">
                     <canvas id="firma" width="550" height="240"></canvas>
                     <p class="signature-help">✎ Firme con su dedo o ratón en el recuadro</p>
                     

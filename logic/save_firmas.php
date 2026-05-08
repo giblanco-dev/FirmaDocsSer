@@ -8,6 +8,7 @@ $id_paciente = intval($_POST['id_paciente'] ?? 0);
 $firma_base64 = $_POST['firma_base64'] ?? '';  // llega como "data:image/png;base64,iVBOR..."
 $message = '';
 $success = false;
+$documento = $_POST['documento'] ?? '';
 
 // Validación de datos
 if (!$id_paciente || !$firma_base64) {
@@ -34,7 +35,39 @@ if (!$id_paciente || !$firma_base64) {
         }
 
         // Generar nombre de archivo
-        $nombre_archivo = 'firma_paciente_' . $id_paciente . '_' . date('Y-m-d_H-i') . '.png';
+
+        switch($documento){
+            case 'HGC':
+                $nombre_archivo = 'HistoriaClinicaGen_' . $id_paciente . '_' . date('Y-m-d_H-i') . '.png';
+                // Preparar y ejecutar query con prepared statement
+        $sql_update = "UPDATE paciente 
+                       SET url_firma_hgc = ?, 
+                           date_firma_hgc = NOW(), 
+                           fecha_consetimiento_hgc = NOW() 
+                       WHERE id_paciente = ?";
+
+            $url_ok = '<a class="button" href="../view_aviso.php?id_paciente='.$id_paciente.'">Continuar (Aviso de Privacidad)</a>';
+                break;
+            case 'AP':
+                $nombre_archivo = 'AvisoPrivacidad_' . $id_paciente . '_' . date('Y-m-d_H-i') . '.png';
+                $sql_update = "UPDATE paciente 
+                       SET url_firma_avisop = ?, 
+                           date_firma_avisop = NOW(), 
+                           fecha_consetimiento_avisop = NOW() 
+                       WHERE id_paciente = ?";
+
+                       $url_ok = '<a class="button" href="../view_consentimiento.php?id_paciente='.$id_paciente.'">Continuar (Consentimiento Informado)</a>';
+                break;
+            case 'CIN':
+                $nombre_archivo = 'ConsentimientoInformado_' . $id_paciente . '_' . date('Y-m-d_H-i') . '.png';
+                $sql_update = "UPDATE paciente 
+                       SET url_firma_consent = ?, 
+                           date_firma_consent = NOW(), 
+                           fecha_consetimientoinf = NOW() 
+                       WHERE id_paciente = ?";
+                       $url_ok = '<a class="button" href="../fotopaciente.php?id_paciente='.$id_paciente.'">Continuar (Tomar Foto del Paciente)</a>';
+                break;
+        }
         $ruta_fisica = $directorio . $nombre_archivo;
         $ruta_bd = 'Firmas/' . $nombre_archivo;  // Ruta relativa para guardar en BD
 
@@ -48,12 +81,7 @@ if (!$id_paciente || !$firma_base64) {
             throw new Exception('El archivo no se guardó correctamente');
         }
 
-        // Preparar y ejecutar query con prepared statement
-        $sql_update = "UPDATE paciente 
-                       SET url_firma = ?, 
-                           date_firma = NOW(), 
-                           fecha_consetimiento = NOW() 
-                       WHERE id_paciente = ?";
+        
 
         $stmt = $mysqli->prepare($sql_update);
         if (!$stmt) {
@@ -170,6 +198,7 @@ if (!$id_paciente || !$firma_base64) {
                                     align-items: center;
                                     justify-content: center;
                                     -webkit-tap-highlight-color: transparent;
+                                    text-decoration: none;
                                 }
 
                                 .button:hover {
@@ -296,9 +325,12 @@ if (!$id_paciente || !$firma_base64) {
                                 
                                 <?php if ($success): ?>
                                     <p style="color: #4caf50; font-size: 18px; margin-bottom: 30px; font-weight: 600;">La firma se ha registrado exitosamente</p>
+                                    <br>
+                                    <?php echo $url_ok; ?>
+                                    <br>
                                 <?php endif; ?>
                                 
-                                <a class="button" href="../">Salir</a>
+                                <a class="button" style="background-color: #E9D502;" href="../">Salir</a>
                                 
                             </div>
 
