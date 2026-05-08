@@ -38,38 +38,59 @@ if (!$id_paciente || !$firma_base64) {
 
         switch($documento){
             case 'HGC':
+                $campo = 'url_firma_hgc';
                 $nombre_archivo = 'HistoriaClinicaGen_' . $id_paciente . '_' . date('Y-m-d_H-i') . '.png';
-                // Preparar y ejecutar query con prepared statement
-        $sql_update = "UPDATE paciente 
-                       SET url_firma_hgc = ?, 
-                           date_firma_hgc = NOW(), 
-                           fecha_consetimiento_hgc = NOW() 
-                       WHERE id_paciente = ?";
-
-            $url_ok = '<a class="button" href="../view_aviso.php?id_paciente='.$id_paciente.'">Continuar (Aviso de Privacidad)</a>';
+                $sql_update = "UPDATE paciente 
+                               SET url_firma_hgc = ?, 
+                                   date_firma_hgc = NOW(), 
+                                   fecha_consetimiento_hgc = NOW() 
+                               WHERE id_paciente = ?";
+                $url_ok = '<a class="button" href="../view_aviso.php?id_paciente='.$id_paciente.'">Continuar (Aviso de Privacidad)</a>';
                 break;
             case 'AP':
+                $campo = 'url_firma_avisop';
                 $nombre_archivo = 'AvisoPrivacidad_' . $id_paciente . '_' . date('Y-m-d_H-i') . '.png';
                 $sql_update = "UPDATE paciente 
-                       SET url_firma_avisop = ?, 
-                           date_firma_avisop = NOW(), 
-                           fecha_consetimiento_avisop = NOW() 
-                       WHERE id_paciente = ?";
-
-                       $url_ok = '<a class="button" href="../view_consentimiento.php?id_paciente='.$id_paciente.'">Continuar (Consentimiento Informado)</a>';
+                               SET url_firma_avisop = ?, 
+                                   date_firma_avisop = NOW(), 
+                                   fecha_consetimiento_avisop = NOW() 
+                               WHERE id_paciente = ?";
+                $url_ok = '<a class="button" href="../view_consentimiento.php?id_paciente='.$id_paciente.'">Continuar (Consentimiento Informado)</a>';
                 break;
             case 'CIN':
+                $campo = 'url_firma_consent';
                 $nombre_archivo = 'ConsentimientoInformado_' . $id_paciente . '_' . date('Y-m-d_H-i') . '.png';
                 $sql_update = "UPDATE paciente 
-                       SET url_firma_consent = ?, 
-                           date_firma_consent = NOW(), 
-                           fecha_consetimientoinf = NOW() 
-                       WHERE id_paciente = ?";
-                       $url_ok = '<a class="button" href="../fotopaciente.php?id_paciente='.$id_paciente.'">Continuar (Tomar Foto del Paciente)</a>';
+                               SET url_firma_consent = ?, 
+                                   date_firma_consent = NOW(), 
+                                   fecha_consetimientoinf = NOW() 
+                               WHERE id_paciente = ?";
+                $url_ok = '<a class="button" href="../fotopaciente.php?id_paciente='.$id_paciente.'">Continuar (Tomar Foto del Paciente)</a>';
                 break;
         }
+        
         $ruta_fisica = $directorio . $nombre_archivo;
         $ruta_bd = 'Firmas/' . $nombre_archivo;  // Ruta relativa para guardar en BD
+
+        // --- BORRAR FIRMA ANTERIOR SI EXISTE ---
+        if (isset($campo)) {
+            $stmt_old = $mysqli->prepare("SELECT $campo FROM paciente WHERE id_paciente = ?");
+            if ($stmt_old) {
+                $stmt_old->bind_param("i", $id_paciente);
+                $stmt_old->execute();
+                $stmt_old->bind_result($ruta_anterior);
+                $stmt_old->fetch();
+                $stmt_old->close();
+                
+                if (!empty($ruta_anterior)) {
+                    // $ruta_anterior viene como 'Firmas/NombreArchivo.png'
+                    $ruta_absoluta_anterior = __DIR__ . '/../' . $ruta_anterior;
+                    if (file_exists($ruta_absoluta_anterior)) {
+                        unlink($ruta_absoluta_anterior);
+                    }
+                }
+            }
+        }
 
         // Guardar archivo
         if (!file_put_contents($ruta_fisica, $datos_imagen)) {
