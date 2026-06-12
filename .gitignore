@@ -5,5 +5,9 @@
 # Mantener las carpetas vacías en Git
 !/Firmas/.keep
 !/FotosPacientes/.keep
+<<<<<<< HEAD
 
 .agents/ .keep
+=======
+logic/conn.php
+>>>>>>> 872e3c31ec8865b46e396cd5b6246eb134a55d89
