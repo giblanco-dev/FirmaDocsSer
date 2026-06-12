@@ -5,3 +5,5 @@
 # Mantener las carpetas vacías en Git
 !/Firmas/.keep
 !/FotosPacientes/.keep
+
+.agents/ .keep

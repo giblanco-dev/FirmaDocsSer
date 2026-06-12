@@ -1,8 +1,8 @@
 <?php
 $ServerName = "localhost";
-$Username = "root";
-$Password = "xTNhJSP0)Ai}";
-$NameBD = "ser";
+$Username = "medalter_erp";
+$Password = "Sx5*MsY3JcLqA$6C";
+$NameBD = "medalter_serERP";
 $mysqli=new mysqli($ServerName, $Username, $Password, $NameBD); 
 
 $mysqli->set_charset("utf8");
